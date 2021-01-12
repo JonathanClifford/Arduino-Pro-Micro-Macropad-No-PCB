@@ -2,7 +2,7 @@
 //adapted & modified from https://github.com/Johnmadlabs/10Key-MechKeeb
 //This installation tutorial can be used if you've never used Arduinos/The Pro Micro before in order to get this set up: 
 //https://www.youtube.com/watch?v=UeGEP8vxzZQ
-
+// Version 1.1
 
 //______________________________________________________________________________________________________________________________________________________________________________________________
 // We will be using the HID Library instead of the normal keyboard and mouse library packaged with Arduino.
@@ -121,12 +121,13 @@ void loop() {
   if (digitalRead(KEY5) == LOW)
   {
     Keyboard.press(KEY_LEFT_CTRL);
-    Keyboard.print("-");
+    Mouse.move(0,0,-5); // Move the scrollwheel only (x,y,scrollAmount)
         delay(125);
   }
    if (digitalRead(KEY5) == HIGH)
     {
       Keyboard.releaseAll();
+      Mouse.release(); 
     }
 
 //KEY 6 - Vol -
@@ -155,12 +156,13 @@ void loop() {
   if (digitalRead(KEY8) == LOW)
   {
     Keyboard.press(KEY_LEFT_CTRL);
-    Keyboard.print("+");
+    Mouse.move(0,0,5); // Move the scrollwheel only (x,y,scrollAmount)
         delay(125);
   }
    if (digitalRead(KEY8) == HIGH)
     {
       Keyboard.releaseAll();
+      Mouse.release();
     }
 //KEY 9 - Vol + 
   if (digitalRead(KEY9) == LOW)
